@@ -38,9 +38,7 @@ tinysou.engines.create({
 Get:
 
 ```javascript
-tinysou.engines.get({
-  engine: 'blog'
-}, function(err, res) {
+tinysou.engines.get('blog', function(err, res) {
   console.log(res);
 });
 ```
@@ -58,9 +56,7 @@ tinysou.engines.update('blog', {
 Delete:
 
 ```javascript
-tinysou.engines.delete({
-  engine: 'blog'
-}, function(err, res) {
+tinysou.engines.delete('blog', function(err, res) {
   console.log(res);
 });
 ```
