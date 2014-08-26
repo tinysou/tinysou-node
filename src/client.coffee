@@ -65,7 +65,7 @@ class Client
       if err
         callback err
       else
-        callback null, body
+        callback null, true
 
 
 module.exports = Client

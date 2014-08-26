@@ -32,6 +32,6 @@ describe 'Client', ->
       assert.equal '1', res.version
 
   it 'shoulb be able to send DELETE request', ->
-    nock(@host).delete('/v1').reply(204, { version: '1' })
+    nock(@host).delete('/v1').reply(204)
     @client.delete '', {}, (err, res) ->
-      assert.equal '1', res.version
+      assert.equal true, res
