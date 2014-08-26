@@ -25,6 +25,6 @@
     "coffee-script": "1.7.x"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha --compilers coffee:coffee-script/register"
   }
 }
