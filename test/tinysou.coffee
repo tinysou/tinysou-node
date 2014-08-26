@@ -1,7 +1,8 @@
-assert = require("assert")
-Tinysou = require('../lib/tinysou')
+assert = require 'assert'
+Tinysou = require '../lib/tinysou'
+
+
 describe 'Tinysou', ->
-  describe 'init', ->
-    it 'should have a config', ->
-      tinysou = new Tinysou "key"
-      assert.equal "key", tinysou.key
+  it 'should have a config', ->
+    tinysou = new Tinysou 'token'
+    assert.equal 'token', tinysou.token
