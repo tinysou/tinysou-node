@@ -1,0 +1,30 @@
+{
+  "name": "tinysou",
+  "version": "0.0.0",
+  "description": "Tinysou node client",
+  "homepage": "https://github.com/tinysou/tinysou-node",
+  "author": "Hemslo Wang",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:tinysou/tinysou-node.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tinysou/tinysou-node/issues"
+  },
+  "main": "lib/tinysou.js",
+  "engines": [
+    "node >= 0.8.0"
+  ],
+  "dependencies": {
+    "request": "2.x.x"
+  },
+  "devDependencies": {
+    "mocha": "1.x.x",
+    "nock": "0.x.x",
+    "coffee-script": "1.7.x"
+  },
+  "scripts": {
+    "test": "mocha"
+  }
+}
