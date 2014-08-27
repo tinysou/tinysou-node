@@ -22,12 +22,11 @@ collection = {
 };
 
 document = {
-  title: "My First Post",
-  tags: ["news"],
-  date: "2014-08-16T00:00:00Z",
+  title: 'My First Post',
+  tags: ['news'],
   author: 'Author',
-  url: "http://blog.tinysou.com",
-  body: "Tinysou start online today!"
+  date: '2014-08-16T00:00:00Z',
+  body: 'Tinysou start online today!'
 };
 
 tinysou = new Tinysou(TOKEN);

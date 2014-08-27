@@ -42,7 +42,7 @@ describe 'Engine', ->
       assert.equal engine.name, res.name
       assert.equal engine.display_name, res.display_name
 
-  it 'shoulb delete an engine', ->
+  it 'should delete an engine', ->
     nock(@host).delete("/v1/engines/#{@engine.name}").reply(204)
     @engines.delete @engine.name, (err, res) ->
       assert.equal true, res

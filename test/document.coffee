@@ -22,11 +22,11 @@ describe 'Document', ->
       }
     }
     @document = {
-      title: "My First Post",
-      tags: ["news"],
-      published_date: "2014-08-16T00:00:00Z",
-      url: "http://blog.tinysou.com",
-      body: "Tinysou start online today!"
+      title: 'My First Post',
+      tags: ['news'],
+      author: 'Author',
+      date: '2014-08-16T00:00:00Z',
+      body: 'Tinysou start online today!'
     }
     @document_id = '293ddf9205df9b36ba5761d61ca59a29'
     @host = 'http://api.tinysou.com'

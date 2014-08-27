@@ -118,11 +118,11 @@ Create
 
 ```javascript
 tinysou.documents.create('blog', 'post', {
-  "title": "My First Post",
-  "tags": ["news"],
-  "published_date": "2014-08-16T00:00:00Z",
-  "url": "http://blog.tinysou.com",
-  "body": "Tinysou start online today!"
+  title: 'My First Post',
+  tags: ['news'],
+  author: 'Author',
+  date: '2014-08-16T00:00:00Z',
+  body: 'Tinysou start online today!'
 }, function(err, res) {
   console.log(res);
 });
@@ -140,11 +140,11 @@ Update
 
 ```javascript
 tinysou.documents.update('blog', 'post', '293ddf9205df9b36ba5761d61ca59a29', {
-  "title": "My First Post",
-  "tags": ["news"],
-  "published_date": "2014-08-16T00:00:00Z",
-  "url": "http://blog.tinysou.com",
-  "body": "Tinysou start online today!"
+  title: 'My First Post',
+  tags: ['news'],
+  author: 'Author',
+  date: '2014-08-16T00:00:00Z',
+  body: 'Tinysou start online today!'
 }, fucntion(err, res) {
   console.log(res);
 });
@@ -157,3 +157,7 @@ tinysou.documents.delete('blog', 'post', '293ddf9205df9b36ba5761d61ca59a29', fun
   console.log(res);
 });
 ```
+
+### Example
+
+See [demo.coffee](examples/demo.coffee) and [demo.js](examples/demo.js).
