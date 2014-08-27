@@ -39,7 +39,7 @@ describe 'Collection', ->
     @collections.create @engine.name, @collection, (err, res) ->
       assert.equal collection.name, res.name
 
-  it 'should read a collection', ->
+  it 'should get a collection', ->
     nock(@host)
       .get("/v1/engines/#{@engine.name}/collections/#{@collection.name}")
       .reply(200, @collection)

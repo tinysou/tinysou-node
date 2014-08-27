@@ -25,6 +25,8 @@ class Client
     }, (err, res, body) ->
       if err
         callback err
+      else if res.statusCode != 200
+        callback body
       else
         callback null, body
 
@@ -38,6 +40,8 @@ class Client
     }, (err, res, body) ->
       if err
         callback err
+      else if res.statusCode != 201
+        callback body
       else
         callback null, body
 
@@ -51,6 +55,8 @@ class Client
     }, (err, res, body) ->
       if err
         callback err
+      else if res.statusCode not in [200, 201]
+        callback body
       else
         callback null, body
 
@@ -64,6 +70,8 @@ class Client
     }, (err, res, body) ->
       if err
         callback err
+      else if res.statusCode != 204
+        callback body
       else
         callback null, true
 

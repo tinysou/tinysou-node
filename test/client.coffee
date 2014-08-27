@@ -13,7 +13,7 @@ describe 'Client', ->
     assert.equal 'token', @client.token
     assert.equal 'api.tinysou.com', @client.host
     assert.equal 'v1', @client.version
-    assert.equal 'Tinysou-Node/0.0.0', @client.userAgent
+    assert.equal 'Tinysou-Node/0.0.1', @client.userAgent
     assert.equal 'http://api.tinysou.com/v1', @client.baseUrl
 
   it 'should send GET request', ->

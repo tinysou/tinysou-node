@@ -28,7 +28,7 @@ describe 'Engine', ->
       assert.equal engine.name, res.name
       assert.equal engine.display_name, res.display_name
 
-  it 'should read an engine', ->
+  it 'should get an engine', ->
     nock(@host).get("/v1/engines/#{@engine.name}").reply(200, @engine)
     engine = @engine
     @engines.get engine.name, (err, res) ->
