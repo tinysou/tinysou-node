@@ -13,4 +13,5 @@ class Collection
   delete: (engineName, collectionName, callback) ->
     @client.delete "/engines/#{engineName}/collections/#{collectionName}", {}, callback
 
+
 module.exports = Collection

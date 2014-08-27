@@ -103,3 +103,57 @@ tinysou.collections.delete('blog', 'post', function(err, res) {
   console.log(res);
 });
 ```
+
+#### Document
+
+List
+
+```javascript
+tinysou.documents.list('blog', 'post', function(err, res) {
+  console.log(res);
+});
+```
+
+Create
+
+```javascript
+tinysou.documents.create('blog', 'post', {
+  "title": "My First Post",
+  "tags": ["news"],
+  "published_date": "2014-08-16T00:00:00Z",
+  "url": "http://blog.tinysou.com",
+  "body": "Tinysou start online today!"
+}, function(err, res) {
+  console.log(res);
+});
+```
+
+Get
+
+```javascript
+tinysou.documents.get('blog', 'post', '293ddf9205df9b36ba5761d61ca59a29', function(err, res) {
+  console.log(res);
+});
+```
+
+Update
+
+```javascript
+tinysou.documents.update('blog', 'post', '293ddf9205df9b36ba5761d61ca59a29', {
+  "title": "My First Post",
+  "tags": ["news"],
+  "published_date": "2014-08-16T00:00:00Z",
+  "url": "http://blog.tinysou.com",
+  "body": "Tinysou start online today!"
+}, fucntion(err, res) {
+  console.log(res);
+});
+```
+
+Delete
+
+```javascript
+tinysou.documents.delete('blog', 'post', '293ddf9205df9b36ba5761d61ca59a29', function(err, res) {
+  console.log(res);
+});
+```
