@@ -1,6 +1,8 @@
 tinysou-node
 ============
 
+[![Build Status](https://travis-ci.org/tinysou/tinysou-node.svg?branch=master)](https://travis-ci.org/tinysou/tinysou-node)
+
 Tinysou node client
 
 ### Installation
