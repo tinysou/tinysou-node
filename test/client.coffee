@@ -16,22 +16,22 @@ describe 'Client', ->
     assert.equal 'Tinysou-Node/0.0.0', @client.userAgent
     assert.equal 'http://api.tinysou.com/v1', @client.baseUrl
 
-  it 'should be able to send GET request', ->
+  it 'should send GET request', ->
     nock(@host).get('/v1').reply(200, { version: '1' })
     @client.get '', {}, (err, res) ->
       assert.equal '1', res.version
 
-  it 'should be able to send POST request', ->
+  it 'should send POST request', ->
     nock(@host).post('/v1').reply(201, { version: '1' })
     @client.post '', {}, (err, res) ->
       assert.equal '1', res.version
 
-  it 'should be able to send PUT request', ->
+  it 'should send PUT request', ->
     nock(@host).put('/v1').reply(200, { version: '1' })
     @client.put '', {}, (err, res) ->
       assert.equal '1', res.version
 
-  it 'shoulb be able to send DELETE request', ->
+  it 'should send DELETE request', ->
     nock(@host).delete('/v1').reply(204)
     @client.delete '', {}, (err, res) ->
       assert.equal true, res
