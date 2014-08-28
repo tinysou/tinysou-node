@@ -8,7 +8,7 @@ engine = {
 }
 
 collection = {
-  name: 'post',
+  name: 'posts',
   field_types: {
     title: 'string',
     tags: 'string',
@@ -22,17 +22,27 @@ document = {
   title: 'My First Post',
   tags: ['news'],
   author: 'Author',
-  date: '2014-08-16T00:00:00Z',
+  date: new Date().getTime(),
   body: 'Tinysou start online today!'
 }
 
 tinysou = new Tinysou TOKEN
 
 searchInfo = {
-  q: 'First'
-  c: 'post, document'
+  q: 'tinysou'
+  c: 'posts'
   page: 0,
-  per_parge: '10',
+  per_parge: 10,
+  sort:{
+    field: "date",
+    order: "asc",
+    mode: "avg"
+  }
+}
+
+autocompleteInfo = {
+  q: 'fir',
+  c: 'posts'
   sort:{
     field: "date",
     order: "asc",
@@ -125,13 +135,13 @@ tasks = {
       else
         console.log('Please create a document first')
 
-  searchSingle: ->
-    tinysou.search.single engine.name, collection.name, searchInfo, (err, res) ->
-      display("Search in engine: #{engine.name}, collection: #{collection.name}", err, res)
-
-  searchMany: ->
-    tinysou.search.many engine.name, searchInfo, (err, res) ->
+  search: ->
+    tinysou.search engine.name, searchInfo, (err, res) ->
       display('Search in many collections', err, res)
+
+  autocomplete: ->
+    tinysou.autocomplete engine.name, autocompleteInfo, (err, res) ->
+      display("autocomplete in many collections", err, res)
 }
 
 

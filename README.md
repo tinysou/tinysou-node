@@ -77,7 +77,7 @@ Create
 
 ```javascript
 tinysou.collections.create('blog', {
-  name: 'post',
+  name: 'posts',
   field_types: {
     title: 'string',
     tags: 'string',
@@ -93,7 +93,7 @@ tinysou.collections.create('blog', {
 Get
 
 ```javascript
-tinysou.collections.get('blog', 'post', function(err, rest) {
+tinysou.collections.get('blog', 'posts', function(err, rest) {
   console.log(res);
 });
 ```
@@ -101,7 +101,7 @@ tinysou.collections.get('blog', 'post', function(err, rest) {
 Delete
 
 ```javascript
-tinysou.collections.delete('blog', 'post', function(err, res) {
+tinysou.collections.delete('blog', 'posts', function(err, res) {
   console.log(res);
 });
 ```
@@ -111,7 +111,7 @@ tinysou.collections.delete('blog', 'post', function(err, res) {
 List
 
 ```javascript
-tinysou.documents.list('blog', 'post', function(err, res) {
+tinysou.documents.list('blog', 'posts', function(err, res) {
   console.log(res);
 });
 ```
@@ -119,7 +119,7 @@ tinysou.documents.list('blog', 'post', function(err, res) {
 Create
 
 ```javascript
-tinysou.documents.create('blog', 'post', {
+tinysou.documents.create('blog', 'posts', {
   title: 'My First Post',
   tags: ['news'],
   author: 'Author',
@@ -133,7 +133,7 @@ tinysou.documents.create('blog', 'post', {
 Get
 
 ```javascript
-tinysou.documents.get('blog', 'post', '293ddf9205df9b36ba5761d61ca59a29', function(err, res) {
+tinysou.documents.get('blog', 'posts', '293ddf9205df9b36ba5761d61ca59a29', function(err, res) {
   console.log(res);
 });
 ```
@@ -141,7 +141,7 @@ tinysou.documents.get('blog', 'post', '293ddf9205df9b36ba5761d61ca59a29', functi
 Update
 
 ```javascript
-tinysou.documents.update('blog', 'post', '293ddf9205df9b36ba5761d61ca59a29', {
+tinysou.documents.update('blog', 'posts', '293ddf9205df9b36ba5761d61ca59a29', {
   title: 'My First Post',
   tags: ['news'],
   author: 'Author',
@@ -155,20 +155,23 @@ tinysou.documents.update('blog', 'post', '293ddf9205df9b36ba5761d61ca59a29', {
 Delete
 
 ```javascript
-tinysou.documents.delete('blog', 'post', '293ddf9205df9b36ba5761d61ca59a29', function(err, res) {
+tinysou.documents.delete('blog', 'posts', '293ddf9205df9b36ba5761d61ca59a29', function(err, res) {
   console.log(res);
 });
 ```
 
-####Search
+#### Search
 
 Search in one collection
 
+Search in collections
+
 ```javascript
-tinysou.search.single('blog', 'post', {
-  p: 'tinysou',
-  page: '1',
-  per_parge: '10',
+tinysou.search('blog', {
+  q: 'tinysou',
+  c: 'posts'
+  page: 0,
+  per_parge: 10,
   sort:{
     field: "date",
     order: "asc",
@@ -179,14 +182,16 @@ tinysou.search.single('blog', 'post', {
 });
 ```
 
-Search in collections
+#### Autocomplete
+
+Autocomplete in collections
 
 ```javascript
-tinysou.search.many('blog', {
+tinysou.autocomplete('blog', {
   q: 'tinysou',
-  c: 'post, document'
-  page: '1',
-  per_parge: '10',
+  c: 'posts'
+  page: 0,
+  per_parge: 10,
   sort:{
     field: "date",
     order: "asc",

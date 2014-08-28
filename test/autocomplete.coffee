@@ -2,7 +2,7 @@ assert = require 'assert'
 nock = require 'nock'
 Tinysou = require '../lib/tinysou'
 
-describe 'Search', ->
+describe 'Autocomplete', ->
   before ->
     @tinysou = new Tinysou 'token'
     @engine = {
@@ -28,11 +28,11 @@ describe 'Search', ->
     }
     @host = 'http://api.tinysou.com'
 
-    @searchInfo = {
+    @autocompleteInfo = {
       q: 'fir',
       c: 'posts'
-      page: '0',
-      per_parge: '10',
+      page: 0,
+      per_parge: 10,
       sort:{
         field: "date",
         order: "asc",
@@ -40,13 +40,13 @@ describe 'Search', ->
       }
     }
 
-  it 'should search in collections', ->
+  it 'should autocomplete in collections', ->
     nock(@host)
-      .post("/v1/engines/#{@engine.name}/search")
+      .post("/v1/engines/#{@engine.name}/autocomplete")
       .reply(201, @document)
     document = @document
-    searchInfo = @searchInfo
-    @tinysou.search @engine.name, searchInfo, (err, res) ->
+    autocompleteInfo = @autocompleteInfo
+    @tinysou.autocomplete @engine.name, autocompleteInfo, (err, res) ->
       assert.equal document.title, res.title
 
 
