@@ -3,7 +3,7 @@ Tinysou = require 'tinysou'
 TOKEN = 'YOUR_TOKEN'
 
 engine = {
-  name: 'blog',
+  name: 'YOUR-blog',
   display_name: 'Blog'
 }
 
@@ -27,6 +27,18 @@ document = {
 }
 
 tinysou = new Tinysou TOKEN
+
+searchInfo = {
+  q: 'First'
+  c: 'post, document'
+  page: 0,
+  per_parge: '10',
+  sort:{
+    field: "date",
+    order: "asc",
+    mode: "avg"
+  }
+}
 
 display = (msg, err, res) ->
   console.log(msg)
@@ -111,7 +123,16 @@ tasks = {
         tinysou.documents.delete engine.name, collection.name, document_id, (err, res) ->
           display('Delete a document', err, res)
       else
-        console.log('Please create a document first')}
+        console.log('Please create a document first')
+
+  searchSingle: ->
+    tinysou.search.single engine.name, collection.name, searchInfo, (err, res) ->
+      display("Search in engine: #{engine.name}, collection: #{collection.name}", err, res)
+
+  searchMany: ->
+    tinysou.search.many engine.name, searchInfo, (err, res) ->
+      display('Search in many collections', err, res)
+}
 
 
 args = process.argv

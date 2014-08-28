@@ -160,6 +160,43 @@ tinysou.documents.delete('blog', 'post', '293ddf9205df9b36ba5761d61ca59a29', fun
 });
 ```
 
+####Search
+
+Search in one collection
+
+```javascript
+tinysou.search.single('blog', 'post', {
+  p: 'tinysou',
+  page: '1',
+  per_parge: '10',
+  sort:{
+    field: "date",
+    order: "asc",
+    mode: "avg"
+  }
+}, function(err, res) {
+  console.log(res);
+});
+```
+
+Search in collections
+
+```javascript
+tinysou.search.many('blog', {
+  q: 'tinysou',
+  c: 'post, document'
+  page: '1',
+  per_parge: '10',
+  sort:{
+    field: "date",
+    order: "asc",
+    mode: "avg"
+  }
+}, function(err, res) {
+  console.log(res);
+});
+```
+
 ### Example
 
 See [demo.coffee](examples/demo.coffee) and [demo.js](examples/demo.js).
