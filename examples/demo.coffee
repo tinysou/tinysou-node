@@ -3,12 +3,12 @@ Tinysou = require 'tinysou'
 TOKEN = 'YOUR_TOKEN'
 
 engine = {
-  name: 'blog',
+  name: 'YOUR-blog',
   display_name: 'Blog'
 }
 
 collection = {
-  name: 'post',
+  name: 'posts',
   field_types: {
     title: 'string',
     tags: 'string',
@@ -22,11 +22,33 @@ document = {
   title: 'My First Post',
   tags: ['news'],
   author: 'Author',
-  date: '2014-08-16T00:00:00Z',
+  date: new Date().getTime(),
   body: 'Tinysou start online today!'
 }
 
 tinysou = new Tinysou TOKEN
+
+searchInfo = {
+  q: 'tinysou'
+  c: 'posts'
+  page: 0,
+  per_parge: 10,
+  sort:{
+    field: "date",
+    order: "asc",
+    mode: "avg"
+  }
+}
+
+autocompleteInfo = {
+  q: 'fir',
+  c: 'posts'
+  sort:{
+    field: "date",
+    order: "asc",
+    mode: "avg"
+  }
+}
 
 display = (msg, err, res) ->
   console.log(msg)
@@ -111,7 +133,16 @@ tasks = {
         tinysou.documents.delete engine.name, collection.name, document_id, (err, res) ->
           display('Delete a document', err, res)
       else
-        console.log('Please create a document first')}
+        console.log('Please create a document first')
+
+  search: ->
+    tinysou.search engine.name, searchInfo, (err, res) ->
+      display('Search in many collections', err, res)
+
+  autocomplete: ->
+    tinysou.autocomplete engine.name, autocompleteInfo, (err, res) ->
+      display("autocomplete in many collections", err, res)
+}
 
 
 args = process.argv
