@@ -4,7 +4,6 @@ Collection = require './collection'
 Document = require './document'
 
 
-
 class Tinysou
   constructor: (@token) ->
     @client = new Client @token
