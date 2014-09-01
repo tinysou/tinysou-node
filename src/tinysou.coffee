@@ -11,5 +11,11 @@ class Tinysou
     @collections = new Collection @client
     @documents = new Document @client
 
+  search: (engineName, searchInfo, callback) ->
+    @client.post "/engines/#{engineName}/search", searchInfo, callback
+
+  autocomplete: (engineName, autocompleteInfo, callback) ->
+    @client.post "/engines/#{engineName}/autocomplete", autocompleteInfo, callback
+
 
 module.exports = Tinysou

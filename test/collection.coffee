@@ -12,7 +12,7 @@ describe 'Collection', ->
       display_name: 'Blog'
     }
     @collection = {
-      name: 'post',
+      name: 'posts',
       field_types: {
         title: 'string',
         tags: 'string',
