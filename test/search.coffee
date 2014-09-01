@@ -49,9 +49,3 @@ describe 'Search', ->
     searchInfo = @searchInfo
     @tinysou.search @engine.name, searchInfo, (err, res) ->
       assert.equal document.title, res.title
-
-
-
-
-
-

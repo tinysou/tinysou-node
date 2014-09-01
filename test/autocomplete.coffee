@@ -48,9 +48,3 @@ describe 'Autocomplete', ->
     autocompleteInfo = @autocompleteInfo
     @tinysou.autocomplete @engine.name, autocompleteInfo, (err, res) ->
       assert.equal document.title, res.title
-
-
-
-
-
-

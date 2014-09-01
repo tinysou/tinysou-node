@@ -162,8 +162,6 @@ tinysou.documents.delete('blog', 'posts', documentId, function(err, res) {
 
 #### Search
 
-Search in one collection
-
 Search in collections
 
 ```javascript
@@ -188,7 +186,7 @@ Autocomplete in collections
 
 ```javascript
 tinysou.autocomplete('blog', {
-  q: 'tinysou',
+  q: 'tinys',
   c: 'posts'
   page: 0,
   per_parge: 10,
