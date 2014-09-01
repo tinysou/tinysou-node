@@ -2,6 +2,7 @@ assert = require 'assert'
 nock = require 'nock'
 Tinysou = require '../lib/tinysou'
 
+
 describe 'Search', ->
   before ->
     @tinysou = new Tinysou 'token'
