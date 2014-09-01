@@ -133,7 +133,7 @@ tinysou.documents.create('blog', 'posts', {
 Get
 
 ```javascript
-tinysou.documents.get('blog', 'posts', '293ddf9205df9b36ba5761d61ca59a29', function(err, res) {
+tinysou.documents.get('blog', 'posts', documentId, function(err, res) {
   console.log(res);
 });
 ```
@@ -141,7 +141,7 @@ tinysou.documents.get('blog', 'posts', '293ddf9205df9b36ba5761d61ca59a29', funct
 Update
 
 ```javascript
-tinysou.documents.update('blog', 'posts', '293ddf9205df9b36ba5761d61ca59a29', {
+tinysou.documents.update('blog', 'posts', documentId, {
   title: 'My First Post',
   tags: ['news'],
   author: 'Author',
@@ -155,7 +155,7 @@ tinysou.documents.update('blog', 'posts', '293ddf9205df9b36ba5761d61ca59a29', {
 Delete
 
 ```javascript
-tinysou.documents.delete('blog', 'posts', '293ddf9205df9b36ba5761d61ca59a29', function(err, res) {
+tinysou.documents.delete('blog', 'posts', documentId, function(err, res) {
   console.log(res);
 });
 ```
