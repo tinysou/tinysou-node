@@ -170,6 +170,13 @@ tinysou.search('blog', {
   c: 'posts'
   page: 0,
   per_parge: 10,
+  filter: {
+    range: {
+      field: "date"
+      from: "2014-07-01T00:00:00Z",
+      to: "2014-08-01T00:00:00Z"
+    }
+  },
   sort:{
     field: "date",
     order: "asc",
@@ -190,7 +197,14 @@ tinysou.autocomplete('blog', {
   c: 'posts'
   page: 0,
   per_parge: 10,
-  sort:{
+  filter: {
+    range: {
+      field: "date"
+      from: "2014-07-01T00:00:00Z",
+      to: "2014-08-01T00:00:00Z"
+    }
+  },
+  sort: {
     field: "date",
     order: "asc",
     mode: "avg"
