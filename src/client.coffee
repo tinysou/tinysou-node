@@ -15,65 +15,35 @@ class Client
   _buildUrl: (path) ->
     @baseUrl + path
 
-  get: (path, params, callback) ->
+  request: (method, path, params, body, callback) ->
     request {
-      method: 'GET',
+      method: method,
       qs: params,
       url: @_buildUrl(path),
+      body: body,
       json: true,
       headers: @headers
     }, (err, res, body) ->
       if err
         callback err
-      else if res.statusCode != 200
+      else if res.statusCode >= 400
         callback body
+      else if res.statusCode == 204
+        callback null, true
       else
         callback null, body
 
-  post: (path, payload, callback) ->
-    request {
-      method: 'POST',
-      body: payload,
-      url: @_buildUrl(path),
-      json: true,
-      headers: @headers
-    }, (err, res, body) ->
-      if err
-        callback err
-      else if res.statusCode != 201
-        callback body
-      else
-        callback null, body
+  get: (path, params, callback) ->
+    @request 'GET', path, params, null, callback
 
-  put: (path, payload, callback) ->
-    request {
-      method: 'PUT',
-      body: payload,
-      url: @_buildUrl(path),
-      json: true,
-      headers: @headers
-    }, (err, res, body) ->
-      if err
-        callback err
-      else if res.statusCode not in [200, 201]
-        callback body
-      else
-        callback null, body
+  post: (path, body, callback) ->
+    @request 'POST', path, null, body, callback
+
+  put: (path, body, callback) ->
+    @request 'PUT', path, null, body, callback
 
   delete: (path, params, callback) ->
-    request {
-      method: 'DELETE',
-      qs: params,
-      url: @_buildUrl(path),
-      json: true,
-      headers: @headers
-    }, (err, res, body) ->
-      if err
-        callback err
-      else if res.statusCode != 204
-        callback body
-      else
-        callback null, true
+    @request 'DELETE', path, params, null, callback
 
 
 module.exports = Client
