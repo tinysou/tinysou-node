@@ -172,7 +172,7 @@ tinysou.search('blog', {
   per_parge: 10,
   filter: {
     range: {
-      field: "date"
+      field: "date",
       from: "2014-07-01T00:00:00Z",
       to: "2014-08-01T00:00:00Z"
     }
@@ -199,7 +199,7 @@ tinysou.autocomplete('blog', {
   per_parge: 10,
   filter: {
     range: {
-      field: "date"
+      field: "date",
       from: "2014-07-01T00:00:00Z",
       to: "2014-08-01T00:00:00Z"
     }
